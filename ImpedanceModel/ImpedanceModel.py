@@ -130,7 +130,8 @@ class ImpedanceModel:
         return evaluation_result
     
                 
-    def _recursive_element_evaluation(self, result: npt.ArrayLike, frequency_Hz: npt.ArrayLike, elements: ImpedanceModelElement | Iterable[ImpedanceModelElement]) -> npt.ArrayLike:
+    def _recursive_element_evaluation(self, result: npt.ArrayLike, frequency_Hz: npt.ArrayLike, 
+                                      elements: ImpedanceModelElement | Iterable[ImpedanceModelElement]) -> npt.ArrayLike:
         """
         Method to recursively iterate through the given model sturcture to calculate resulting impedance
         NOTE: Internal function ...
