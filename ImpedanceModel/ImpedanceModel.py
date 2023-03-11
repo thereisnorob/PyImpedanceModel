@@ -1,9 +1,7 @@
 from __future__ import annotations
 from typing import List, Tuple, Iterable
 from .ImpedanceModelElement import ImpedanceModelElement
-from scipy import interpolate
 from scipy import optimize
-from scipy.optimize import OptimizeResult
 from time import perf_counter
 import numpy as np
 import numpy.typing as npt
