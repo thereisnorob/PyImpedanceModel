@@ -198,6 +198,20 @@ class ImpedanceModel:
     def fit_data(self, frequency_data_Hz: npt.ArrayLike, z_data_Ohm: npt.ArrayLike, 
                  p_0: List[float] = None, p_min: List[float] = None, p_max: List[float] = None,
                  apply_result: bool = True) -> float:
+        """
+        Method for fitting the model to measurement data
+
+        Args:
+            frequency_data_Hz (npt.ArrayLike): Frequency from measurement data in Hz
+            z_data_Ohm (npt.ArrayLike): Impedance data from measurement data in Ohm
+            p_0 (List[float], optional): Initial parameter guesses. Defaults to None.
+            p_min (List[float], optional): Minimum parameter boundaries. Defaults to None.
+            p_max (List[float], optional): Maximum parameter boundaries. Defaults to None.
+            apply_result (bool, optional): If true, parameters will be applied and the model will be evaluated. Defaults to True.
+
+        Returns:
+            float: _description_
+        """
                 
         # Set initial guess if none are given
         if not p_0:
