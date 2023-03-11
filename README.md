@@ -5,3 +5,10 @@ In its current form, it can be used to setup generic equivalent-circuit models (
 and to fit models to real-world impedance data.
 
 Simple example scripts for a) seeting up arbitrary models, and b) fit a model to real-world data can be found in the repo.
+
+## Usage:
+```
+from ImpedanceModel import *
+
+model = ImpedanceModel([R(), (R(), C())])
+```
