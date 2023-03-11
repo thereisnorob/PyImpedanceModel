@@ -2,6 +2,7 @@ from __future__ import annotations
 from typing import List, Tuple, Iterable
 from .ImpedanceModelElement import ImpedanceModelElement
 from scipy import optimize
+from scipy.optimize import OptimizeResult
 from time import perf_counter
 import numpy as np
 import numpy.typing as npt
@@ -197,7 +198,7 @@ class ImpedanceModel:
             
     def fit_data(self, frequency_data_Hz: npt.ArrayLike, z_data_Ohm: npt.ArrayLike, 
                  p_0: List[float] = None, p_min: List[float] = None, p_max: List[float] = None,
-                 apply_result: bool = True) -> float:
+                 apply_result: bool = True) -> (OptimizeResult, float):
         """
         Method for fitting the model to measurement data
 
@@ -210,7 +211,8 @@ class ImpedanceModel:
             apply_result (bool, optional): If true, parameters will be applied and the model will be evaluated. Defaults to True.
 
         Returns:
-            float: _description_
+            OptimizeResult: SciPy optimize result object with parameters and residuals
+            float: Fit time in s
         """
                 
         # Set initial guess if none are given
