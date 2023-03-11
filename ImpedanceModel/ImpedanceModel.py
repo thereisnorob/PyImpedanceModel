@@ -278,7 +278,7 @@ class ImpedanceModel:
     
     
     @staticmethod
-    def get_log_frequency_range(f_max_Hz: float, f_min_Hz: float, points_per_decade: int = 10) -> [float]:
+    def get_log_frequency_range(f_max_Hz: float, f_min_Hz: float, points_per_decade: int = 10) -> List[float]:
         """
         Method to generate frequency ranges
 
@@ -288,7 +288,7 @@ class ImpedanceModel:
             points_per_decade (int, optional): Number of points per decade. Defaults to 10.
 
         Returns:
-            [float]: Frequency range from max to min.
+            List[float]: Frequency range from max to min.
         """
         
         # Calculate number of points
