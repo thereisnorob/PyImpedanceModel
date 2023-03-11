@@ -5,7 +5,7 @@ from .ImpedanceModelElement import ImpedanceModelElement
 
 class FSW(ImpedanceModelElement):
     """
-    Equivalent circuit element: Finite-length Warburg impedance
+    Equivalent circuit element: Finite-space Warburg impedance
     
     @version:   AB-20230311
                 (AA-20221224)
@@ -19,7 +19,7 @@ class FSW(ImpedanceModelElement):
     
     def __init__(self, Aw_Ohm_p_s_sqrt: float = 0.001, B_1_p_s_sqrt: float = 20):
         """
-        Equivalent circuit element: Finite-length Warburg impedance
+        Equivalent circuit element: Finite-space Warburg impedance
         
         Open (Finite-Space) Warburg element
         Appearance: Downwards-curled Warburg
