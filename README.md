@@ -1,6 +1,8 @@
 # PyImpedanceModel
 PyImpedanceModel is a lightweight python framework for modeling electrical impedance models.
 
+![Example data fit](https://picr.eu/images/2023/03/11/C2kEe.png)
+
 In its current form, it can be used to setup generic equivalent-circuit models (e.g. for generating dummy electrical impedance spectroscopy (EIS) data) 
 and to fit models to real-world impedance data.
 
