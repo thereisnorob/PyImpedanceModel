@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-from ImpedanceModel import *
+from PyImpedanceModel import *
 
 # Setup test models
 # As this model will be fitted to actual data, we won't bother coming up with initial values

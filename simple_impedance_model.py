@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
-from ImpedanceModel import *
+from PyImpedanceModel import *
 
 # Setup test models
 model = ImpedanceModel(
