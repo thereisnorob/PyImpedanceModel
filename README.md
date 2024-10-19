@@ -51,14 +51,14 @@ An ideal inductor with inductance L in H.
 ### Constant-phase element (CPE) for non-ideal capcitors `CPE(Q0_Ohm_p_s_n = 30, n_1 = 0.95)`
 In most cases ideal capacitors are insufficient for describing real-world capacitive impedance behaviors.
 
-For such cases, a constant-phase element (short CPE) can be implemented. A very good introduction to CPEs can be found here: http://lacey.se/science/eis/constant-phase-element/
+For such cases, a constant-phase element (short CPE) can be implemented. A very good introduction to CPEs can be found here: [https://lithiuminventory.com/experimental-electrochemistry/eis/constant-phase-element/index.html]
 
 ### CPE in parallel to a resistor `R_CPE(R_Ohm: = 0.01, tau_s: = 1, n_1: = 0.95)`
 As CPEs are often used in parallel with an Ohmic resistor (often called ZARC element), this element can be used to model such a circuit.
 It also replaces the capacitance parameter with a time constant (tau = R*C) which really helps understanding the connection to distribution of relaxation times (DRT). 
 
-A good ressource on ZARC elements can be found here:
-http://www.consultrsr.net/resources/eis/zarc.htm
+A brief ressource on ZARC elements can be found here:
+[https://www.zimmerpeacocktech.com/2022/02/18/the-zarc-element/]
 
 ### Semi-inifite diffusion - Warburg `W(Aw_Ohm_p_s_sqrt = 1e-6)`
 Warburg elements are used to model semi-infinite, linear diffusion behaviors in impedance spectra.
@@ -66,8 +66,8 @@ Its basically a frequentcy-independent 45° CPE. Aw is the Warburg constant.
 
 ### Finite-length, closed, or transmissive Warburg `FLW(Aw_Ohm_p_s_sqrt: = 1e-7, B_1_p_s_sqrt: = 1e-7)`
 This element can be used to model transmissive mass-transport through thin layers with a finite length
-(see http://lacey.se/science/eis/diffusion-impedance/ and http://www.consultrsr.net/resources/eis/diff-o.htm).
+(see https://lithiuminventory.com/experimental-electrochemistry/eis/diffusion-impedance/index.html).
 
 ### Finite-space, open, or reflective Warburg `FLW(Aw_Ohm_p_s_sqrt: = 0.001, B_1_p_s_sqrt: = 20)`
 This element can be used to model reflective diffusion as it appears in porous electrodes
-(see http://lacey.se/science/eis/diffusion-impedance/ and http://www.consultrsr.net/resources/eis/diff-o.htm).
+(see https://lithiuminventory.com/experimental-electrochemistry/eis/diffusion-impedance/index.html).
