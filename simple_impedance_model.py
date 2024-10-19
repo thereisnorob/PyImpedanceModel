@@ -5,8 +5,8 @@ from PyImpedanceModel import *
 # Setup test models
 model = ImpedanceModel(
     [R(0), 
-     R_CPE(R_Ohm = 1, tau_s = 0.01, n_1 = 0.9), 
-     R_CPE(R_Ohm = 8, tau_s = 1, n_1 = 1), 
+     R_CPE(R_Ohm = 1, tau_s = 0.01, alpha = 0.9), 
+     R_CPE(R_Ohm = 8, tau_s = 1, alpha = 1), 
      FSW(0.5, 20)]
 )
 
