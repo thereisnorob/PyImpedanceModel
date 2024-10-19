@@ -7,7 +7,7 @@ class CPE(ImpedanceModelElement):
     """
     Equivalent circuit element: Non-ideal constant phase element
     
-    @version:   AB-20230311
+    @version:   AC-20241019
                 (AA-20221224)
     @author:    Robert Leonhardt <mail@robertleonhardt.de>
     """
@@ -17,7 +17,7 @@ class CPE(ImpedanceModelElement):
     _max_value_list: List[float] = [1e6, 1]
     
     
-    def __init__(self, Q0_Ohm_p_s_n: float = 30, n_1: float = 0.95):
+    def __init__(self, Q0_Ohm_p_s_n: float = 30, alpha: float = 0.95):
         """
         Equivalent circuit element: Non-ideal constant phase element
         
@@ -27,13 +27,13 @@ class CPE(ImpedanceModelElement):
 
         Args:
             Q0_Ohm_p_s_n (float): Capacitance value in Ohm/s^n
-            n_1 (float): Phase angle (0 ... 1) whereas 0 = point (ideal resistor) and 1 = vertical line (ideal capacitor)
+            alpha (float): Phase angle (0 ... 1) whereas 0 = point (ideal resistor) and 1 = vertical line (ideal capacitor)
         """
-        self.set_parameters(Q0_Ohm_p_s_n, n_1)
+        self.set_parameters(Q0_Ohm_p_s_n, alpha)
         
     
     def evaluate(self, frequency_Hz: npt.ArrayLike) -> npt.ArrayLike:
-        return 1 / (self.Q0_Ohm_p_s_n * (1j * 2 * np.pi * frequency_Hz) ** self.n_1)
+        return 1 / (self.Q0_Ohm_p_s_n * (1j * 2 * np.pi * frequency_Hz) ** self.alpha)
     
     
     @property 
@@ -45,9 +45,9 @@ class CPE(ImpedanceModelElement):
         self._parameter_list[0] = value
         
     @property 
-    def n_1(self):
+    def alpha(self):
         return self._parameter_list[1]
     
-    @n_1.setter
-    def n_1(self, value):
+    @alpha.setter
+    def alpha(self, value):
         self._parameter_list[1] = value

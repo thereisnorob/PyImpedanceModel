@@ -15,15 +15,15 @@ class ImpedanceModel:
     """
     Class for setting-up impedance models and fit them to measured spectra.
     
-    @version:   AB-20230311
+    @version:   AD-20241019
                 (AA-20221224)
     @author:    Robert Leonhardt <mail@robertleonhardt.de>
     """
     
     # List with all model elements
     # Structe contains lists and tuples of ImpedanceModelElement
-    _model_structure:  ImpedanceModelElement | Iterable[ImpedanceModelElement]
-    _flat_model_list:   [ImpedanceModelElement]
+    _model_structure:               ImpedanceModelElement | Iterable[ImpedanceModelElement]
+    _flat_model_list:               [ImpedanceModelElement]
     
     
     def __init__(self, model: ImpedanceModelElement | Iterable[ImpedanceModelElement], **kwargs):
@@ -277,6 +277,13 @@ class ImpedanceModel:
         # Return difference as list
         return z1d
     
+    def get_noisy_z_Ohm(self, seed: int = 5055, noise_level: float = 0.01) -> npt.ArrayLike:
+        # Setup seed for reproducibility
+        np.random.seed(seed)
+        
+        # Return impedance with noise
+        return np.array((self._z_Ohm.real + noise_level * np.random.normal(size = self._z_Ohm.real.shape)) + 1j * (self._z_Ohm.imag + noise_level * np.random.normal(size = self._z_Ohm.imag.shape)))
+    
     
     @staticmethod
     def get_log_frequency_range(f_max_Hz: float, f_min_Hz: float, points_per_decade: int = 10) -> List[float]:
@@ -306,6 +313,10 @@ class ImpedanceModel:
     @property
     def z_Ohm(self) -> npt.ArrayLike:
         return np.array(self._z_Ohm)
+    
+    @property
+    def z_noisy_Ohm(self) -> npt.ArrayLike:
+        return self.get_noisy_z_Ohm()
     
     @property 
     def phi_deg(self) -> npt.ArrayLike:
